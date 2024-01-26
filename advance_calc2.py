@@ -1,8 +1,8 @@
 '''
 Script description:
-Calculadora que reciba 2 números y 
-realice la operacón aritmética que el usuario desee.
-Puede ecoger entre sumar, restar, mul o dividir.
+Calculadora que reciba 2 números y
+realice la operación aritmética que el usuario desee.
+Puede escoger entre sumar, restar, mul o dividir.
 '''
 import os
 
@@ -20,6 +20,11 @@ def calculator(x, y, z):
             return 'No es posible dividir entre cero (0)'
         else:
             return x / y
+    elif z == '5':
+        if y == 0:
+            return x+y, x-y, x*y,'No es posible dividir entre cero (0)'
+        else:   
+            return x+y, x-y, x*y, x/y
     else :
         return 'Fail, invalid option'
 
@@ -31,8 +36,19 @@ print("[1]. Sumar")
 print("[2]. Restar")
 print("[3]. Multiplicar")
 print("[4]. Dividir")
-#Mostrar el resultado de todas: print("[5]. Todas")
-opc = input("Digite una opción del menú ")
+print("[5]. Todas")
+opc = input("Digite una opción del menú: ")
 
-ans = calculator(n1,n2,opc)
-print("Resultado: ", ans)
+#Formato de salida 1
+if opc == '1' or opc == '2' or opc == '3' or opc == '4':
+    ans = calculator(n1, n2, opc)
+    print("Resultado: ", ans)
+elif opc == '5':
+    ans = calculator(n1, n2, opc)
+    print("Suma:", ans[0])
+    print("Resta:", ans[1])
+    print("Multiplicación:", ans[2])
+    print("Divisón:", ans[3])
+
+#Formato de salida 2
+#print("Resultado:", calculator(n1, n2, opc))
